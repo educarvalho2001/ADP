@@ -1,0 +1,7 @@
+requests 
+mysql-connector-python 
+sqlalchemy 
+flask 
+flask_sqlalchemy
+Flask-JWT-Extended
+python-dotenv

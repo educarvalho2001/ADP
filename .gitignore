@@ -1,0 +1,19 @@
+# Ignorar arquivos de ambiente
+.env.api
+.env.app_dba
+.env.app_operator
+*.log
+*.pid
+*.DS_Store
+
+# Ignorar a pasta venv
+venv/*
+
+# Ignorar pastas __pycache__ em diferentes diretórios
+__pycache__/*
+api/__pycache__/*
+data_pipeline/__pycache__/*
+
+# Ignorar arquivos específicos de log, PID e saída do nohup
+flask.log
+flask.pid
