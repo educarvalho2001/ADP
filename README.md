@@ -85,152 +85,98 @@ DB_NAME_APP='insira-seu-banco-de-dados'
 
 Para testar os endpoints protegidos, você precisa primeiro obter um token de acesso. Vamos usar o endpoint /login para isso:
 
-sh
-Copiar código
+# Token flask
 curl -X POST http://localhost:5000/login -H "Content-Type: application/json" -d '{"username": "admin", "password": "admin"}'
-Isso deve retornar um token JWT:
 
-json
-Copiar código
+Isso deve retornar um token JWT:
 {
   "success": true,
   "access_token": "seu-token-jwt"
 }
+
 Agora, você pode usar esse token para acessar os endpoints protegidos.
 
-Endpoints da API
+# Endpoints da API
 1. Área Colhida
-
 Endpoint: /area_colhida
 Método: GET
-
 Parâmetros Obrigatórios:
-
-municipio_id: Código do município (IBGE)
-year: Ano desejado
-Exemplo de URL:
-
-arduino
-Copiar código
-http://127.0.0.1:5000/area_colhida?municipio_id=1100049&year=2020
+  municipio_id: Código do município (IBGE)
+  year: Ano desejado
+Exemplo de Chamada da API com curl
+  curl -X GET "http://localhost:5000/area_colhida?municipio_id=1100049&year=2020" -H "Authorization: Bearer <YOUR_TOKEN>"
 Descrição:
-Esse endpoint retorna a área colhida para o município e ano especificados.
+  Esse endpoint retorna a área colhida para o município e ano especificados.
 
 Exemplo de Resposta de Sucesso:
-
-json
-Copiar código
 {
   "success": true,
   "data": [...],
   "message": "Dados recuperados com sucesso"
 }
-Exemplo de Resposta de Erro:
 
-json
-Copiar código
+Exemplo de Resposta de Erro:
 {
   "success": false,
   "data": null,
   "message": "Parâmetros obrigatórios: municipio_id, year"
 }
-2. Produtividade
 
+
+2. Produtividade
 Endpoint: /produtividade
 Método: GET
-
 Parâmetros Obrigatórios:
-
-estado: Lista de estados brasileiros (UF)
-year: Ano desejado
-Exemplo de URL:
-
-arduino
-Copiar código
-http://127.0.0.1:5000/produtividade?estado=SP&estado=RJ&year=2020
+  estado: Lista de estados brasileiros (UF)
+  year: Ano desejado
+Exemplo de Chamada da API com curl
+  curl -X GET "http://localhost:5000/produtividade?estado=SP&estado=RJ&year=2020" -H "Authorization: Bearer <YOUR_TOKEN>"
 Descrição:
-Esse endpoint retorna a produtividade para os estados e ano especificados.
+  Esse endpoint retorna a produtividade para os estados e ano especificados.
 
 Exemplo de Resposta de Sucesso:
-
-json
-Copiar código
 {
   "success": true,
   "data": [...],
   "message": "Dados recuperados com sucesso"
 }
-Exemplo de Resposta de Erro:
 
-json
-Copiar código
+Exemplo de Resposta de Erro:
 {
   "success": false,
   "data": null,
   "message": "Parâmetros obrigatórios: estado, year"
 }
-3. Quantidade Produzida
 
+3. Quantidade Produzida
 Endpoint: /quantidade_produzida
 Método: GET
-
 Parâmetros Obrigatórios:
-
-municipio: Lista de códigos de municípios (IBGE)
-ano: Lista de anos desejados
+  municipio: Lista de códigos de municípios (IBGE)
+  ano: Lista de anos desejados
 Exemplo de URL:
-
-arduino
-Copiar código
-http://127.0.0.1:5000/quantidade_produzida?municipio=1100049&municipio=1100148&ano=2020&ano=2021
+  curl -X GET "http://localhost:5000/quantidade_produzida?municipio=1100049&municipio=1100130&ano=2020&ano=2021" -H "Authorization: Bearer <YOUR_TOKEN>"
 Descrição:
-Esse endpoint retorna a quantidade produzida para os municípios e anos especificados.
+  Esse endpoint retorna a quantidade produzida para os municípios e anos especificados.
 
 Exemplo de Resposta de Sucesso:
-
-json
-Copiar código
 {
   "success": true,
   "data": [...],
   "message": "Dados recuperados com sucesso"
 }
-Exemplo de Resposta de Erro:
 
-json
-Copiar código
+Exemplo de Resposta de Erro:
 {
   "success": false,
   "data": null,
   "message": "Parâmetros obrigatórios: municipio, ano"
 }
-Exemplo de Resposta de Erro (Excesso de Dados):
 
-json
-Copiar código
+Exemplo de Resposta de Erro (Excesso de Dados):
 {
   "success": false,
   "data": null,
   "message": "Número de dados solicitados excede o limite de 100"
+
 }
-Exemplo de Chamada da API com curl
-Para obter o token:
-
-sh
-Copiar código
-curl -X POST "http://localhost:5000/login" -H "Content-Type: application/json" -d '{"username":"admin","password":"admin"}'
-Para consultar a área colhida:
-
-sh
-Copiar código
-curl -X GET "http://localhost:5000/area_colhida?municipio_id=1100049&year=2020" -H "Authorization: Bearer <YOUR_TOKEN>"
-Para consultar a produtividade:
-
-sh
-Copiar código
-curl -X GET "http://localhost:5000/produtividade?estado=SP&estado=RJ&year=2020" -H "Authorization: Bearer <YOUR_TOKEN>"
-Para consultar a quantidade produzida:
-
-sh
-Copiar código
-curl -X GET "http://localhost:5000/quantidade_produzida?municipio=1100049&municipio=1100130&ano=2020&ano=2021" -H "Authorization: Bearer <YOUR_TOKEN>"
