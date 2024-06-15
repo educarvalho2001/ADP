@@ -180,3 +180,32 @@ Exemplo de Resposta de Erro (Excesso de Dados):
   "message": "Número de dados solicitados excede o limite de 100"
 
 }
+
+# Endpoints Externos da API SIDRA do IBGE
+Para alimentar nossa base de dados, utilizamos dois endpoints da API SIDRA do IBGE. Abaixo estão os detalhes de cada endpoint e exemplos de como utilizá-los.
+
+# Endpoint: Área Colhida
+Este endpoint retorna dados sobre a área colhida para um determinado ano.
+
+URL: https://apisidra.ibge.gov.br/values/t/5457/n6/all/v/216/p/{year}/c782/40124?formato=json
+
+Parâmetros:
+year: Ano desejado para a consulta (ex: 2020)
+
+Exemplo de URL:
+https://apisidra.ibge.gov.br/values/t/5457/n6/all/v/216/p/2020/c782/40124?formato=json
+
+
+# Endpoint: Quantidade Produzida
+Este endpoint retorna dados sobre a quantidade produzida para um determinado ano.
+
+URL: https://apisidra.ibge.gov.br/values/t/5457/n6/all/v/214/p/{year}/c782/40124?formato=json
+
+Parâmetros:
+year: Ano desejado para a consulta (ex: 2020)
+
+Exemplo de URL:
+https://apisidra.ibge.gov.br/values/t/5457/n6/all/v/214/p/2020/c782/40124?formato=json
+Função em Python para obter os dados:
+
+
