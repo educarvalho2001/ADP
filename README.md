@@ -2,52 +2,56 @@
 Atualização dos Dados de Plantio-ADP
 
 ## Tela da aplicação
-============================================================
 Bem-vindo ao Sistema de Atualização dos Dados de Plantio-ADP
-Veeries - Inteligência em Agronegócio
-Engenheiro de dados: Eduardo Alves de Carvalho
+Veeries - Inteligência em Agronegócio  
+Engenheiro de dados: Eduardo Alves de Carvalho  
 Contato: eduardo@e-setorial.com.br
 
-Credencial: app_dba
+Credencial: app_dba  
 Conexão com o banco de dados estabelecida.
 
-MENU:
-
-Criar estrutura do banco de dados
-Atualizar dados para um ano específico
-Apagar dados para um ano específico
-Contar registros nas tabelas
-Remover arquivos de cache do Python
-Remover tabelas - DROP TABLES
-Iniciar Flask
-Testar endpoints - Visão do cliente
-Parar Flask
-Sair
-Escolha uma opção:
-shell
-Copiar código
+**MENU:**
+- Criar estrutura do banco de dados
+- Atualizar dados para um ano específico
+- Apagar dados para um ano específico
+- Contar registros nas tabelas
+- Remover arquivos de cache do Python
+- Remover tabelas - DROP TABLES
+- Iniciar Flask
+- Testar endpoints - Visão do cliente
+- Parar Flask
+- Sair
+- Escolha uma opção:
 
 ## Estrutura de arquivos
 .
 |-- README.md
 |-- airflow
-| -- dags | -- airflow_dag.py
+| |-- dags
+| |-- airflow_dag.py
 |-- api
 | |-- init.py
 | |-- db_operations_api.py
-| -- endpoints.py |-- api.py |-- config.py |-- data | -- dct_municipio_uf.csv
+| |-- endpoints.py
+| |-- api.py
+| |-- config.py
+| |-- data
+| |-- dct_municipio_uf.csv
 |-- data_pipeline
 | |-- init.py
 | |-- api_requests.py
 | |-- data_processing.py
-| -- db_operations.py |-- main.py |-- requirements.txt -- setup_and_run_api.sh
+| |-- db_operations.py
+| |-- main.py
+|-- requirements.txt
+|-- setup_and_run_api.sh
 
-shell
+perl
 Copiar código
 
 ## Configuração dos arquivos `.env`
 ### .env
-Ajuste o valor de APP_ENV para app_operator ou app_dba conforme deseje utilizar uma ou outra credencial
+Ajuste o valor de APP_ENV para `app_operator` ou `app_dba` conforme deseje utilizar uma ou outra credencial
 
 APP_ENV=app_operator
 #APP_ENV=app_dba
@@ -65,8 +69,7 @@ DB_PORT_API=3306
 DB_NAME_API='insira-seu-banco-de-dados'
 JWT_SECRET_KEY='insira-sua-secret-key'
 
-String_de_conexao_MySQL = "mysql+mysqlconnector://insira-seu-usuario
-@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
+String_de_conexao_MySQL="mysql+mysqlconnector://insira-seu-usuario@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
 
 shell
 Copiar código
@@ -80,10 +83,9 @@ DB_HOST_APP='insira-seu-host'
 DB_PORT_APP=3306
 DB_NAME_APP='insira-seu-banco-de-dados'
 
-String_de_conexao_MySQL = "mysql+mysqlconnector://insira-seu-usuario
-@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
+String_de_conexao_MySQL="mysql+mysqlconnector://insira-seu-usuario@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
 
-shell
+csharp
 Copiar código
 
 ### .env.app_operator
@@ -95,8 +97,7 @@ DB_HOST_APP='insira-seu-host'
 DB_PORT_APP=3306
 DB_NAME_APP='insira-seu-banco-de-dados'
 
-String_de_conexao_MySQL = "mysql+mysqlconnector://insira-seu-usuario
-@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
+String_de_conexao_MySQL="mysql+mysqlconnector://insira-seu-usuario@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
 
 bash
 Copiar código
@@ -119,8 +120,8 @@ Copiar código
 Agora, você pode usar esse token para acessar os endpoints protegidos.
 
 Endpoints da API
-
 1. Área Colhida
+
 Endpoint: /area_colhida
 Método: GET
 Parâmetros Obrigatórios:
@@ -132,7 +133,6 @@ sh
 Copiar código
 curl -X GET "http://localhost:5000/area_colhida?municipio_id=1100049&year=2020" -H "Authorization: Bearer <YOUR_TOKEN>"
 Descrição
-
 Esse endpoint retorna a área colhida para o município e ano especificados.
 
 Exemplo de Resposta de Sucesso
@@ -154,6 +154,7 @@ Copiar código
   "message": "Parâmetros obrigatórios: municipio_id, year"
 }
 2. Produtividade
+
 Endpoint: /produtividade
 Método: GET
 Parâmetros Obrigatórios:
@@ -165,7 +166,6 @@ sh
 Copiar código
 curl -X GET "http://localhost:5000/produtividade?estado=SP&estado=RJ&year=2020" -H "Authorization: Bearer <YOUR_TOKEN>"
 Descrição
-
 Esse endpoint retorna a produtividade para os estados e ano especificados.
 
 Exemplo de Resposta de Sucesso
@@ -187,6 +187,7 @@ Copiar código
   "message": "Parâmetros obrigatórios: estado, year"
 }
 3. Quantidade Produzida
+
 Endpoint: /quantidade_produzida
 Método: GET
 Parâmetros Obrigatórios:
@@ -198,7 +199,6 @@ sh
 Copiar código
 curl -X GET "http://localhost:5000/quantidade_produzida?municipio=1100049&municipio=1100130&ano=2020&ano=2021" -H "Authorization: Bearer <YOUR_TOKEN>"
 Descrição
-
 Esse endpoint retorna a quantidade produzida para os municípios e anos especificados.
 
 Exemplo de Resposta de Sucesso
@@ -229,10 +229,10 @@ Copiar código
   "message": "Número de dados solicitados excede o limite de 100"
 }
 Endpoints Externos da API SIDRA do IBGE
-
 Para alimentar nossa base de dados, utilizamos dois endpoints da API SIDRA do IBGE. Abaixo estão os detalhes de cada endpoint e exemplos de como utilizá-los.
 
 Endpoint: Área Colhida
+
 Este endpoint retorna dados sobre a área colhida para um determinado ano.
 
 URL: https://apisidra.ibge.gov.br/values/t/5457/n6/all/v/216/p/{year}/c782/40124?formato=json
@@ -254,6 +254,7 @@ def get_area_colhida(year):
     response = requests.get(url)
     return response.json()
 Endpoint: Quantidade Produzida
+
 Este endpoint retorna dados sobre a quantidade produzida para um determinado ano.
 
 URL: https://apisidra.ibge.gov.br/values/t/5457/n6/all/v/214/p/{year}/c782/40124?formato=json
@@ -264,3 +265,5 @@ Exemplo de URL
 sh
 Copiar código
 https://apisidra.ibge.gov.br/values/t/5457/n6/all/v/214/p/2020/c782/40124?formato=json
+csharp
+Copiar código
