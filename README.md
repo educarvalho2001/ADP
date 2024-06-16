@@ -3,10 +3,12 @@
 Atualização dos Dados de Plantio-ADP
 
 ## Tela da aplicação
-Bem-vindo ao Sistema de Atualização dos Dados de Plantio-ADP  
-Veeries - Inteligência em Agronegócio  
-Engenheiro de dados: Eduardo Alves de Carvalho  
-Contato: eduardo@e-setorial.com.br
+============================================================
+Bem-vindo ao Sistema de Atualização dos Dados de Plantio-ADP
+                     Veeries - Inteligência em Agronegócio
+Engenheiro de dados: Eduardo Alves de Carvalho
+Contato:             eduardo@e-setorial.com.br
+============================================================
 
 Credencial: app_dba  
 Conexão com o banco de dados estabelecida.
@@ -38,7 +40,7 @@ Conexão com o banco de dados estabelecida.
   |   |-- api.py
   |   |-- config.py
   |   |-- data
-  |       |-- dct_municipio_uf.csv
+  |   |-- dct_municipio_uf.csv
   |-- data_pipeline
   |   |-- __init__.py
   |   |-- api_requests.py
