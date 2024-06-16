@@ -73,7 +73,7 @@ DB_PORT_API=3306
 DB_NAME_API='insira-seu-banco-de-dados'
 JWT_SECRET_KEY='insira-sua-secret-key'
 
-String_de_conexao_MySQL="mysql+mysqlconnector://insira-seu-usuario@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
+# String_de_conexao_MySQL="mysql+mysqlconnector://insira-seu-usuario@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
 ```
 
 ### .env.app_dba
@@ -86,7 +86,7 @@ DB_HOST_APP='insira-seu-host'
 DB_PORT_APP=3306
 DB_NAME_APP='insira-seu-banco-de-dados'
 
-String_de_conexao_MySQL="mysql+mysqlconnector://insira-seu-usuario@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
+# String_de_conexao_MySQL="mysql+mysqlconnector://insira-seu-usuario@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
 ```
 
 ### .env.app_operator
@@ -99,7 +99,7 @@ DB_HOST_APP='insira-seu-host'
 DB_PORT_APP=3306
 DB_NAME_APP='insira-seu-banco-de-dados'
 
-String_de_conexao_MySQL="mysql+mysqlconnector://insira-seu-usuario@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
+# String_de_conexao_MySQL="mysql+mysqlconnector://insira-seu-usuario@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
 ```
 
 ## Testando os Endpoints
