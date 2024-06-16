@@ -52,6 +52,10 @@ MENU:
 |-- requirements.txt
 `-- setup_and_run_api.sh
 ```
+## Requirements
+```plaintext
+pip install requests mysql-connector-python sqlalchemy flask flask_sqlalchemy flask_jwt_extended pandas python-dotenv 
+```
 
 ## Configuração dos arquivos `.env`
 ### .env
