@@ -24,30 +24,27 @@ Conexão com o banco de dados estabelecida.
 - Escolha uma opção:
 
 ## Estrutura de arquivos
-.
-|-- README.md
-|-- airflow
-| |-- dags
-| |-- airflow_dag.py
-|-- api
-| |-- init.py
-| |-- db_operations_api.py
-| |-- endpoints.py
-| |-- api.py
-| |-- config.py
-| |-- data
-| |-- dct_municipio_uf.csv
-|-- data_pipeline
-| |-- init.py
-| |-- api_requests.py
-| |-- data_processing.py
-| |-- db_operations.py
-| |-- main.py
-|-- requirements.txt
-|-- setup_and_run_api.sh
-
-perl
-Copiar código
+  .
+  |-- README.md
+  |-- airflow
+  | |-- dags
+  | |-- airflow_dag.py
+  |-- api
+  | |-- init.py
+  | |-- db_operations_api.py
+  | |-- endpoints.py
+  | |-- api.py
+  | |-- config.py
+  | |-- data
+  | |-- dct_municipio_uf.csv
+  |-- data_pipeline
+  | |-- init.py
+  | |-- api_requests.py
+  | |-- data_processing.py
+  | |-- db_operations.py
+  | |-- main.py
+  |-- requirements.txt
+  |-- setup_and_run_api.sh
 
 ## Configuração dos arquivos `.env`
 ### .env
@@ -55,9 +52,6 @@ Ajuste o valor de APP_ENV para `app_operator` ou `app_dba` conforme deseje utili
 
 APP_ENV=app_operator
 #APP_ENV=app_dba
-
-shell
-Copiar código
 
 ### .env.api
 Usuário WebService - Grant de Select
@@ -71,9 +65,6 @@ JWT_SECRET_KEY='insira-sua-secret-key'
 
 String_de_conexao_MySQL="mysql+mysqlconnector://insira-seu-usuario@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
 
-shell
-Copiar código
-
 ### .env.app_dba
 Usuário DBA
 
@@ -84,9 +75,6 @@ DB_PORT_APP=3306
 DB_NAME_APP='insira-seu-banco-de-dados'
 
 String_de_conexao_MySQL="mysql+mysqlconnector://insira-seu-usuario@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
-
-csharp
-Copiar código
 
 ### .env.app_operator
 Usuário Operador - Não Dropa nem Recria as tabelas
@@ -99,16 +87,14 @@ DB_NAME_APP='insira-seu-banco-de-dados'
 
 String_de_conexao_MySQL="mysql+mysqlconnector://insira-seu-usuario@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
 
-bash
-Copiar código
-
 ## Testando os Endpoints
-
 Para testar os endpoints protegidos, você precisa primeiro obter um token de acesso. Vamos usar o endpoint `/login` para isso:
 
 ### Token Flask
-```sh
+sh
+Copiar código
 curl -X POST http://localhost:5000/login -H "Content-Type: application/json" -d '{"username": "admin", "password": "admin"}'
+
 Isso deve retornar um token JWT:
 
 json
@@ -119,9 +105,8 @@ Copiar código
 }
 Agora, você pode usar esse token para acessar os endpoints protegidos.
 
-Endpoints da API
+## Endpoints da API
 1. Área Colhida
-
 Endpoint: /area_colhida
 Método: GET
 Parâmetros Obrigatórios:
@@ -132,6 +117,7 @@ Exemplo de Chamada da API com curl
 sh
 Copiar código
 curl -X GET "http://localhost:5000/area_colhida?municipio_id=1100049&year=2020" -H "Authorization: Bearer <YOUR_TOKEN>"
+
 Descrição
 Esse endpoint retorna a área colhida para o município e ano especificados.
 
@@ -144,6 +130,7 @@ Copiar código
   "data": [...],
   "message": "Dados recuperados com sucesso"
 }
+
 Exemplo de Resposta de Erro
 
 json
@@ -153,8 +140,8 @@ Copiar código
   "data": null,
   "message": "Parâmetros obrigatórios: municipio_id, year"
 }
-2. Produtividade
 
+2. Produtividade
 Endpoint: /produtividade
 Método: GET
 Parâmetros Obrigatórios:
@@ -165,6 +152,7 @@ Exemplo de Chamada da API com curl
 sh
 Copiar código
 curl -X GET "http://localhost:5000/produtividade?estado=SP&estado=RJ&year=2020" -H "Authorization: Bearer <YOUR_TOKEN>"
+
 Descrição
 Esse endpoint retorna a produtividade para os estados e ano especificados.
 
@@ -177,6 +165,7 @@ Copiar código
   "data": [...],
   "message": "Dados recuperados com sucesso"
 }
+
 Exemplo de Resposta de Erro
 
 json
@@ -186,8 +175,8 @@ Copiar código
   "data": null,
   "message": "Parâmetros obrigatórios: estado, year"
 }
-3. Quantidade Produzida
 
+3. Quantidade Produzida
 Endpoint: /quantidade_produzida
 Método: GET
 Parâmetros Obrigatórios:
@@ -198,6 +187,7 @@ Exemplo de Chamada da API com curl
 sh
 Copiar código
 curl -X GET "http://localhost:5000/quantidade_produzida?municipio=1100049&municipio=1100130&ano=2020&ano=2021" -H "Authorization: Bearer <YOUR_TOKEN>"
+
 Descrição
 Esse endpoint retorna a quantidade produzida para os municípios e anos especificados.
 
@@ -210,6 +200,7 @@ Copiar código
   "data": [...],
   "message": "Dados recuperados com sucesso"
 }
+
 Exemplo de Resposta de Erro
 
 json
@@ -219,6 +210,7 @@ Copiar código
   "data": null,
   "message": "Parâmetros obrigatórios: municipio, ano"
 }
+
 Exemplo de Resposta de Erro (Excesso de Dados)
 
 json
@@ -228,14 +220,18 @@ Copiar código
   "data": null,
   "message": "Número de dados solicitados excede o limite de 100"
 }
+
 Endpoints Externos da API SIDRA do IBGE
 Para alimentar nossa base de dados, utilizamos dois endpoints da API SIDRA do IBGE. Abaixo estão os detalhes de cada endpoint e exemplos de como utilizá-los.
 
-Endpoint: Área Colhida
+# Endpoint: Área Colhida
 
 Este endpoint retorna dados sobre a área colhida para um determinado ano.
 
+sh
+Copiar código
 URL: https://apisidra.ibge.gov.br/values/t/5457/n6/all/v/216/p/{year}/c782/40124?formato=json
+
 Parâmetros:
 year: Ano desejado para a consulta (ex: 2020)
 Exemplo de URL
@@ -247,19 +243,23 @@ Função em Python para obter os dados
 
 python
 Copiar código
-import requests
+  import requests
+  def get_area_colhida(year):
+      url = f"https://apisidra.ibge.gov.br/values/t/5457/n6/all/v/216/p/{year}/c782/40124?formato=json"
+      response = requests.get(url)
+      return response.json()
 
-def get_area_colhida(year):
-    url = f"https://apisidra.ibge.gov.br/values/t/5457/n6/all/v/216/p/{year}/c782/40124?formato=json"
-    response = requests.get(url)
-    return response.json()
-Endpoint: Quantidade Produzida
+# Endpoint: Quantidade Produzida
 
 Este endpoint retorna dados sobre a quantidade produzida para um determinado ano.
 
+sh
+Copiar código
 URL: https://apisidra.ibge.gov.br/values/t/5457/n6/all/v/214/p/{year}/c782/40124?formato=json
+
 Parâmetros:
 year: Ano desejado para a consulta (ex: 2020)
+
 Exemplo de URL
 
 sh
