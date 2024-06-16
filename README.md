@@ -14,7 +14,7 @@ Contato:             eduardo@e-setorial.com.br
 Credencial: app_dba  
 Conexão com o banco de dados estabelecida.
 
-**MENU:**
+MENU:
 - Criar estrutura do banco de dados
 - Atualizar dados para um ano específico
 - Apagar dados para um ano específico
@@ -30,27 +30,27 @@ Conexão com o banco de dados estabelecida.
 
 ## Estrutura de arquivos
 ```plaintext
-  .
-  |-- README.md
-  |-- airflow
-  |   |-- dags
-  |   |-- airflow_dag.py
-  |-- api
-  |   |-- __init__.py
-  |   |-- db_operations_api.py
-  |   |-- endpoints.py
-  |   |-- api.py
-  |   |-- config.py
-  |   |-- data
-  |   |-- dct_municipio_uf.csv
-  |-- data_pipeline
-  |   |-- __init__.py
-  |   |-- api_requests.py
-  |   |-- data_processing.py
-  |   |-- db_operations.py
-  |   |-- main.py
-  |-- requirements.txt
-  |-- setup_and_run_api.sh
+.
+|-- README.md
+|-- airflow
+|   `-- dags
+|       `-- airflow_dag.py
+|-- api
+|   |-- __init__.py
+|   |-- db_operations_api.py
+|   `-- endpoints.py
+|-- api.py
+|-- config.py
+|-- data
+|   `-- dct_municipio_uf.csv
+|-- data_pipeline
+|   |-- __init__.py
+|   |-- api_requests.py
+|   |-- data_processing.py
+|   `-- db_operations.py
+|-- main.py
+|-- requirements.txt
+`-- setup_and_run_api.sh
 ```
 
 ## Configuração dos arquivos `.env`
