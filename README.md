@@ -3,6 +3,7 @@
 Atualização dos Dados de Plantio-ADP
 
 ## Tela da aplicação
+```plaintext
 ============================================================
 Bem-vindo ao Sistema de Atualização dos Dados de Plantio-ADP
                      Veeries - Inteligência em Agronegócio
@@ -25,6 +26,7 @@ Conexão com o banco de dados estabelecida.
 - Parar Flask
 - Sair
 - Escolha uma opção:
+```
 
 ## Estrutura de arquivos
 ```plaintext
