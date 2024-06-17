@@ -14,11 +14,11 @@ def get_engine():
     return create_engine(f'mysql+mysqlconnector://{user}:{password}@{host}:{port}/{database}?charset=utf8')
 
     # Debug prints para verificar os valores
-    print(f"DB_USER_APIWWxxx: {user}")
-    print(f"DB_PASSWORD_API: {password}")
-    print(f"DB_HOST_API: {host}")
-    print(f"DB_PORT_API: {port}")
-    print(f"DB_NAME_API: {database}")
+    # print(f"DB_USER_API: {user}")
+    # print(f"DB_PASSWORD_API: {password}")
+    # print(f"DB_HOST_API: {host}")
+    # print(f"DB_PORT_API: {port}")
+    # print(f"DB_NAME_API: {database}")
 
 def fetch_area_colhida(engine, municipio_id, year):
     query = text("""

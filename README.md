@@ -50,11 +50,13 @@ MENU:
 |   `-- db_operations.py
 |-- main.py
 |-- requirements.txt
-`-- setup_and_run_api.sh
+|-- setup_and_run_api.sh
+`-- terraform
+    `-- main.tf
 ```
 ## Requirements
 ```plaintext
-pip install requests mysql-connector-python sqlalchemy flask flask_sqlalchemy flask_jwt_extended pandas python-dotenv 
+pip install requirements.txt
 ```
 
 ## Configuração dos arquivos `.env`
@@ -146,9 +148,16 @@ Exemplo de Resposta de Sucesso:
 
 ```json
 {
-  "success": true,
-  "data": [...],
-  "message": "Dados recuperados com sucesso"
+   "data":{
+      "area_colhida":1000,
+      "id_uf_ibge":11,
+      "municipio_id":"1100049",
+      "nm_municipio":"Cacoal",
+      "sg_uf":"RO",
+      "year":"2020"
+   },
+   "message":"Dados recuperados com sucesso",
+   "success":true
 }
 ```
 
@@ -182,9 +191,20 @@ Exemplo de Resposta de Sucesso:
 
 ```json
 {
-  "success": true,
-  "data": [...],
-  "message": "Dados recuperados com sucesso"
+   "data":[
+      {
+         "estado":"PR",
+         "produtividade":"3.7717",
+         "year":"2020"
+      },
+      {
+         "estado":"SP",
+         "produtividade":"3.4314",
+         "year":"2020"
+      }
+   ],
+   "message":"Dados recuperados com sucesso",
+   "success":true
 }
 ```
 
@@ -218,9 +238,30 @@ Exemplo de Resposta de Sucesso:
 
 ```json
 {
-  "success": true,
-  "data": [...],
-  "message": "Dados recuperados com sucesso"
+   "data":[
+      {
+         "municipio_id":1100049,
+         "quantidade_produzida":6000,
+         "year":2021
+      },
+      {
+         "municipio_id":1100049,
+         "quantidade_produzida":3000,
+         "year":2020
+      },
+      {
+         "municipio_id":1100130,
+         "quantidade_produzida":48953,
+         "year":2021
+      },
+      {
+         "municipio_id":1100130,
+         "quantidade_produzida":50433,
+         "year":2020
+      }
+   ],
+   "message":"Dados recuperados com sucesso",
+   "success":true
 }
 ```
 
