@@ -11,21 +11,22 @@ Engenheiro de dados: Eduardo Alves de Carvalho
 Contato:             eduardo@e-setorial.com.br
 ============================================================
 
-Credencial: app_dba  
+Credencial: app_dba
 Conexão com o banco de dados estabelecida.
 
 MENU:
-- Criar estrutura do banco de dados
-- Atualizar dados para um ano específico
-- Apagar dados para um ano específico
-- Contar registros nas tabelas
-- Remover arquivos de cache do Python
-- Remover tabelas - DROP TABLES
-- Iniciar Flask
-- Testar endpoints - Visão do cliente
-- Parar Flask
-- Sair
-- Escolha uma opção:
+1. Criar estrutura do banco de dados
+2. Atualizar dados para um ano específico
+3. Apagar dados para um ano específico
+4. Contar registros nas tabelas
+5. Remover arquivos de cache do Python
+6. Remover tabelas  - DROP TABLES
+7. Iniciar Flask
+8. Testar endpoints - Visão do cliente
+9. Parar Flask
+10. Sair
+Escolha uma opção: 
+
 ```
 
 ## Estrutura de arquivos
@@ -56,6 +57,7 @@ MENU:
 ```
 ## Requirements
 ```plaintext
+cd ADP
 pip install requirements.txt
 ```
 
@@ -107,6 +109,11 @@ DB_NAME_APP='insira-seu-banco-de-dados'
 
 # String_de_conexao_MySQL="mysql+mysqlconnector://insira-seu-usuario@insira-seu-host:3306/insira-seu-banco-de-dados?charset=utf8"
 ```
+## Executando a aplicacao
+Para executar a aplicação:
+```sh
+python3 main.py
+```
 
 ## Testando os Endpoints
 Para testar os endpoints protegidos, você precisa primeiro obter um token de acesso. Vamos usar o endpoint `/login` para isso:
@@ -129,6 +136,7 @@ Agora, você pode usar esse token para acessar os endpoints protegidos.
 
 ## Endpoints da API
 1. Área Colhida
+
 Endpoint: /area_colhida  
 Método: GET  
 Parâmetros Obrigatórios:  
@@ -172,6 +180,7 @@ Exemplo de Resposta de Erro:
 ```
 
 2. Produtividade
+
 Endpoint: /produtividade  
 Método: GET  
 Parâmetros Obrigatórios:  
@@ -219,6 +228,7 @@ Exemplo de Resposta de Erro:
 ```
 
 3. Quantidade Produzida
+
 Endpoint: /quantidade_produzida  
 Método: GET  
 Parâmetros Obrigatórios:  

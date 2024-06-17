@@ -113,23 +113,13 @@ def count_rows(engine):
         print(f"Total de registros em quantidade_produzida: {row[1]}")
         print(f"Total de registros em municipios: {row[2]}")
 
-# def delete_cache_files(engine=None):
-#     if platform.system() == "Windows":
-#         os.system('del /S /Q *.pyc')
-#         os.system('for /d %x in (__pycache__) do @rd /s /q "%x"')
-#     else:
-#         os.system('find . -name "*.pyc" -exec rm -f {} \;')
-#         os.system('find . -name "__pycache__" -exec rm -rf {} \;')
-#     print("Arquivos de cache removidos.")
-
-# essa funcao nao apaga cache dentro da pasta \venv
 def delete_cache_files(engine=None):
     if platform.system() == "Windows":
         os.system('for /r %i in (*.pyc) do if not "%%~dpi"=="%CD%\\venv\\" del "%%i"')
         os.system('for /d /r %i in (venv) do (if not "%%~dpi"=="%CD%\\venv\\" rd /s /q "%%i")')
     else:
-        os.system('find . -path ./venv -prune -o -name "*.pyc" -exec rm -f {} \;')
-        os.system('find . -path ./venv -prune -o -name "__pycache__" -exec rm -rf {} \;')
+        os.system('find . -path ./venv -prune -o -name "*.pyc" -exec rm -f {} \\;')
+        os.system('find . -path ./venv -prune -o -name "__pycache__" -exec rm -rf {} \\;')
     print("Arquivos de cache removidos.")
 
     
