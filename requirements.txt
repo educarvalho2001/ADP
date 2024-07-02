@@ -5,3 +5,4 @@ flask
 flask_sqlalchemy
 Flask-JWT-Extended
 python-dotenv
+pandas

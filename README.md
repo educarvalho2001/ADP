@@ -6,7 +6,6 @@ Atualização dos Dados de Plantio-ADP
 ```plaintext
 ============================================================
 Bem-vindo ao Sistema de Atualização dos Dados de Plantio-ADP
-                     Veeries - Inteligência em Agronegócio
 Engenheiro de dados: Eduardo Alves de Carvalho
 Contato:             eduardo@e-setorial.com.br
 ============================================================

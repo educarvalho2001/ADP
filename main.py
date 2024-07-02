@@ -20,7 +20,6 @@ def display_header():
     """Exibe o cabeçalho do programa."""
     print("\n============================================================")
     print("Bem-vindo ao Sistema de Atualização dos Dados de Plantio-ADP")
-    print("                     Veeries - Inteligência em Agronegócio")
     print("Engenheiro de dados: Eduardo Alves de Carvalho")
     print("Contato:             eduardo@e-setorial.com.br")
     print("============================================================\n")
